@@ -2,13 +2,13 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "adminUsername": {
+        "vmAdminUsername": {
             "type": "string",
             "metadata": {
                 "description": "The name of the administrator account of the new VM and domain"
             }
         },
-        "adminPassword": {
+        "vmAdminPassword": {
             "type": "securestring",
             "metadata": {
                 "description": "The password for the administrator account of the new VM and domain"
@@ -218,8 +218,8 @@
                 },
                 "osProfile": {
                     "computerName": "[variables('adVMName')]",
-                    "adminUsername": "[parameters('adminUsername')]",
-                    "adminPassword": "[parameters('adminPassword')]"
+                    "adminUsername": "[parameters('vmAdminUsername')]",
+                    "adminPassword": "[parameters('vmAdminPassword')]"
                 },
                 "storageProfile": {
                     "imageReference": {
@@ -277,14 +277,14 @@
                             "Properties": {
                                 "DomainName": "[parameters('domainName')]",
                                 "AdminCreds": {
-                                    "UserName": "[parameters('adminUsername')]",
+                                    "UserName": "[parameters('vmAdminUsername')]",
                                     "Password": "PrivateSettingsRef:AdminPassword"
                                 }
                             }
                         },
                         "protectedSettings": {
                             "Items": {
-                                "AdminPassword": "[parameters('adminPassword')]"
+                                "AdminPassword": "[parameters('vmAdminPassword')]"
                             }
                         }
                     }

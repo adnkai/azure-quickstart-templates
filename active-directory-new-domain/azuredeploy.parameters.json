@@ -2,11 +2,35 @@
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "adminUsername": {
-      "value": "GEN-UNIQUE"
+    "existingVNETName": {
+      "value": "kaisvnet"
     },
-    "adminPassword": {
-      "value": "GEN-PASSWORD"
+    "existingSubnetName": {
+      "value": "kaisubnet"
+    },
+    "vmSize": {
+      "value": "Standard_DS2_V3"
+    },
+    "domainToJoin": {
+      "value": "mydomain.local"
+    },
+    "domainUsername": {
+      "value": "azureUser"
+    },
+    "domainPassword": {
+      "value": "P@ssword!"
+    },
+    "domainJoinOptions": {
+      "value": 3
+    },
+    "vmAdminUsername": {
+      "value": "azureUser"
+    },
+    "vmAdminPassword": {
+      "value": "P@ssword!"
+    },
+    "dnsLabelPrefix": {
+      "value": "GEN-UNIQUE" 
     },
     "domainName": {
       "value": "mydomain.local"
